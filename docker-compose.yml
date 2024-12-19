@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  agendero-app:
+    image: your-dockerhub-username/agendero:latest
+    container_name: agendero-app
+    ports:
+      - "3000:3000"
+    environment:
+      - URL_LOGO=https://minio01.agendero.com/api/v1/buckets/apisite/objects/download?preview=true&prefix=logo.png&version_id=null
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=6b1173be948e7f665bf11c2f043c2203
+      - DB_HOST=185.217.127.77
+      - DB_PORT=5432
+      - DB_DATABASE=agendero
+    restart: unless-stopped
